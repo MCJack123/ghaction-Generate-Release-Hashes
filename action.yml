@@ -1,6 +1,6 @@
 name: 'Generate Release Hashes'
 author: 'JackMacWindows'
-description: 'a'
+description: 'A GitHub action to automatically generate a list of hashes for a release.'
 inputs:
   hash-type:
     description: 'Type of hash to generate (md5, sha1, sha256, sha512)'

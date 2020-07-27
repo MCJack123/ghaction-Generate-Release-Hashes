@@ -1,7 +1,7 @@
 {
   "name": "ghaction-generate-release-hashes",
   "version": "1.0.0",
-  "description": "",
+  "description": "A GitHub action to automatically generate a list of hashes for a release.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

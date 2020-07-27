@@ -1,5 +1,5 @@
 # Generate Release Hashes - GitHub Action
-a
+A GitHub action to automatically generate a list of hashes for a release.
 
 ## Inputs
 ### `hash-type`
