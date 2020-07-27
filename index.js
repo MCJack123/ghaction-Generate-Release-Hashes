@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
-const http = require('http');
+const https = require('https');
 const hasha = require('hasha');
 
 try {
@@ -15,7 +15,7 @@ try {
     }
     for (const asset of github.context.payload.release.assets) {
         numAwaiting++;
-        http.get(asset.url, (res) => {
+        https.get(asset.url, (res) => {
             hasha.fromStream(res, {algorithm: algorithm}).then((hash) => {
                 hashes[asset.name] = hash;
                 if (--numAwaiting == 0) {
