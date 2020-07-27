@@ -1,0 +1,24 @@
+{
+  "name": "ghaction-generate-release-hashes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MCJack123/ghaction-Generate-Release-Hashes.git"
+  },
+  "author": "JackMacWindows",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MCJack123/ghaction-Generate-Release-Hashes/issues"
+  },
+  "homepage": "https://github.com/MCJack123/ghaction-Generate-Release-Hashes#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0",
+    "hasha": "^5.2.0"
+  }
+}
