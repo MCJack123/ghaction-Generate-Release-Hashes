@@ -15,7 +15,7 @@ try {
     }
     for (const asset of github.context.payload.release.assets) {
         numAwaiting++;
-        https.get(asset.url, (res) => {
+        https.get(asset.browser_download_url, (res) => {
             hasha.fromStream(res, {algorithm: algorithm}).then((hash) => {
                 hashes[asset.name] = hash;
                 if (--numAwaiting == 0) {
