@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
-const https = require('https');
+const fetch = require('node-fetch');
 const hasha = require('hasha');
 
 try {
@@ -15,16 +15,14 @@ try {
     }
     for (const asset of github.context.payload.release.assets) {
         numAwaiting++;
-        https.get(asset.browser_download_url, (res) => {
-            hasha.fromStream(res, {algorithm: algorithm}).then((hash) => {
-                hashes[asset.name] = hash;
-                if (--numAwaiting == 0) {
-                    var result = "";
-                    for (const k in hashes) result += k + "  " + hashes[k] + "\n";
-                    core.setOutput("hashes", result);
-                    if (core.getInput("file-name") != "") fs.writeFileSync(core.getInput("file-name"), result, {encoding: "ascii"});
-                }
-            });
+        fetch(asset.browser_download_url).then(res => res.buffer()).then(buffer => {
+            hashes[asset.name] = hasha(buffer, {algorithm: algorithm});
+            if (--numAwaiting == 0) {
+                var result = "";
+                for (const k in hashes) result += k + "  " + hashes[k] + "\n";
+                core.setOutput("hashes", result);
+                if (core.getInput("file-name") != "") fs.writeFileSync(core.getInput("file-name"), result, {encoding: "ascii"});
+            }
         });
     }
 } catch (error) {

@@ -19,6 +19,7 @@
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^4.0.0",
-    "hasha": "^5.2.0"
+    "hasha": "^5.2.0",
+    "node-fetch": "^2.6.0"
   }
 }

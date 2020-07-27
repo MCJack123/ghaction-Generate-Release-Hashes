@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: MCJack123/ghaction-Generate-Release-Hashes@v0.4
+    - uses: MCJack123/ghaction-Generate-Release-Hashes@v0.5
       with:
         file-name: hashes.txt
     - uses: actions/upload-artifact@v2
