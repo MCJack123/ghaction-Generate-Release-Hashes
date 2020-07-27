@@ -9,11 +9,11 @@ try {
     const algorithm = core.getInput('hash-type');
     var hashes = {};
     var numAwaiting = 0;
-    if (github.payload.release === undefined) {
+    if (github.context.payload.release === undefined) {
         core.setFailed("This action must be run on a release event.");
         return;
     }
-    for (const asset of github.payload.release.assets) {
+    for (const asset of github.context.payload.release.assets) {
         numAwaiting++;
         http.get(asset.url, (res) => {
             hasha.fromStream(res, {algorithm: algorithm}).then((hash) => {
