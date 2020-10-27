@@ -19,7 +19,7 @@ try {
             hashes[asset.name] = hasha(buffer, {algorithm: algorithm});
             if (--numAwaiting == 0) {
                 var result = "";
-                for (const k in hashes) result += k + "  " + hashes[k] + "\n";
+                for (const k in hashes) result += hashes[k] + "  " + k + "\n";
                 core.setOutput("hashes", result);
                 if (core.getInput("file-name") != "") fs.writeFileSync(core.getInput("file-name"), result, {encoding: "ascii"});
             }
