@@ -13,7 +13,7 @@ function run(assets) {
     for (const asset of assets) {
         if (filename === "" || asset.name !== filename) { // don't hash the hash file (if the file has the same name)
             numAwaiting++;
-            fetch(asset.browser_download_url).then(res => res.buffer()).then(buffer => {
+            fetch(asset.browser_download_url).then(res => res.arrayBuffer()).then(buffer => {
                 hashes[asset.name] = hasha(buffer, {algorithm: algorithm});
                 if (--numAwaiting === 0) {
                     let result = "";
