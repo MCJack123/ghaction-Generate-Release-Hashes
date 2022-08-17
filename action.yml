@@ -10,11 +10,15 @@ inputs:
     description: 'File name to save as if desired'
     required: false
     default: ''
+  get-assets:
+    description: 'Whether to redownload the asset list (useful if previous jobs upload other assets)'
+    required: false
+    default: 'false'
 outputs:
   hashes:
     description: 'A string with the resulting hashes, one per line, with file name followed by hash'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'index.js'
 branding:
   icon: 'hash'

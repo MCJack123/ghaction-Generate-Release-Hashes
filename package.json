@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A GitHub action to automatically generate a list of hashes for a release.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,6 +21,6 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "hasha": "^5.2.0",
-    "node-fetch": "^3.1.1"
+    "node-fetch": "^3.2.10"
   }
 }
