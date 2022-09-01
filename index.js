@@ -14,7 +14,7 @@ function run(assets) {
         if (filename === "" || asset.name !== filename) { // don't hash the hash file (if the file has the same name)
             numAwaiting++;
             fetch(asset.browser_download_url).then(res => res.arrayBuffer()).then(buffer => {
-                hashes[asset.name] = hasha(buffer, {algorithm: algorithm});
+                hashes[asset.name] = hasha(new Uint8Array(buffer), {algorithm: algorithm});
                 if (--numAwaiting === 0) {
                     let result = "";
                     for (const k in hashes) result += hashes[k] + "  " + k + "\n";
